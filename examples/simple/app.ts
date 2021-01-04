@@ -1,10 +1,10 @@
-import axios from '../../src/index'
+import Axios from '../../src/index'
 
-axios({
-    method: 'get',
-    url: '/simple/get',
-    params: {
-        a: 1,
-        b: 2
-    }
-})
+// Axios({
+//     method: 'get',
+//     url: '/simple/get',
+//     params: {
+//         a: 1,
+//         b: 2
+//     }
+// })
