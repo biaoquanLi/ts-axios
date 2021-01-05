@@ -21,7 +21,7 @@ simple()
 base()
 error()
 registerExtend()
-
+interceptor()
 
 
 app.use(router)
@@ -121,5 +121,10 @@ function registerExtend() {
             result: { name: '小明', age: 30 },
             message: '获取成功'
         })
+    })
+}
+function interceptor() {
+    router.get('/interceptor/get', (req, res) => {
+        res.end()
     })
 }
