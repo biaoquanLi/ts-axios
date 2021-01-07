@@ -22,6 +22,7 @@ base()
 error()
 registerExtend()
 interceptor()
+config()
 
 
 app.use(router)
@@ -126,5 +127,10 @@ function registerExtend() {
 function interceptor() {
     router.get('/interceptor/get', (req, res) => {
         res.end()
+    })
+}
+function config(){
+    router.post('/config/post', (req, res) => {
+        res.json(req.body)
     })
 }

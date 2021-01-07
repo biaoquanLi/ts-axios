@@ -11,5 +11,4 @@ function createInstance(config: AxiosRequestConfig): AxiosInstance {
   return instance as AxiosInstance
 }
 const axios = createInstance(defaults)
-
 export default axios
