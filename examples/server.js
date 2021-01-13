@@ -6,6 +6,8 @@ const webpackHotMiddleware = require('webpack-hot-middleware')
 const router = express.Router()
 const webpackConfig = require('./webpack.config')
 
+require('./server2')
+
 const app = express()
 const compiler = webpack(webpackConfig)
 
@@ -16,6 +18,11 @@ app.use(webpackDevMiddleware(compiler, {
     chunks: false
   }
 }))
+app.use(express.static(__dirname, {
+  setHeaders(res) {
+    res.cookie('XSRF-TOKEN-D', '1234abc')
+  }
+}))
 
 simple()
 base()
@@ -24,6 +31,7 @@ registerExtend()
 interceptor()
 config()
 cancel()
+more()
 
 
 app.use(router)
@@ -151,5 +159,11 @@ function cancel() {
   })
   router.post('/cancel/post', (req, res) => {
     res.json(req.body)
+  })
+}
+
+function more() {
+  router.get('/more/get', (req, res) => {
+    res.end()
   })
 }
