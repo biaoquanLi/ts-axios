@@ -65,7 +65,7 @@ describe('transform', () => {
     }
 
     axios.post('/foo', data, {
-      transformRequest: (axios.defaults.transformRequest as AxiosTransformer[]).concat(function(
+      transformRequest: (axios.defaults.transformRequest as AxiosTransformer[]).concat(function (
         data
       ) {
         return data.replace('bar', 'baz')
