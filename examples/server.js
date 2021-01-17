@@ -179,7 +179,7 @@ function more() {
     res.end('upload success!')
   })
 
-  router.post('/more/post', function(req, res) {
+  router.post('/more/post', function (req, res) {
     const auth = req.headers.authorization
     const [type, credentials] = auth.split(' ')
     console.log(atob(credentials))
@@ -189,5 +189,17 @@ function more() {
     } else {
       res.end('UnAuthorization')
     }
+  })
+
+
+  router.get('/more/304', function (req, res) {
+    res.status(304)
+    res.end()
+  })
+  router.get('/more/A', function (req, res) {
+    res.end()
+  })
+  router.get('/more/B', function (req, res) {
+    res.end()
   })
 }
